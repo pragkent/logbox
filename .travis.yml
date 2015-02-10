@@ -5,7 +5,6 @@ os:
 
 compiler:
   - clang
-  - gcc
 
 env:
   - BUILD_TYPE=Debug
