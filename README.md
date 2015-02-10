@@ -1,8 +1,9 @@
 # Logbox
 [![Build Status](https://travis-ci.org/pragkent/logbox.svg?branch=master)](https://travis-ci.org/pragkent/logbox)
+
 Logbox is a pragmatic logging library for C++.
 ## Introduction
-Logbox is a pragmatic C++ logging library. It could be used like this:
+It could be used like this:
 
 ```cpp
 #include <logbox/logging.h>
