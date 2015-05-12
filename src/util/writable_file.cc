@@ -6,7 +6,7 @@ namespace logbox {
 
 WritableFile::WritableFile(const std::string& filename, FILE* file)
     : filename_(filename), file_(file) {
-  assert(file_ != NULL);
+  assert(file_ != nullptr);
 }
 
 

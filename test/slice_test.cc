@@ -66,7 +66,7 @@ TEST(SliceTest, StartsWith) {
   EXPECT_FALSE(he.starts_with(hello));
 }
 
-TEST(Slice, EqualOperator) {
+TEST(SliceTest, EqualOperator) {
   Slice hello("Hello");
   Slice hi("Hi");
 
@@ -75,7 +75,7 @@ TEST(Slice, EqualOperator) {
   EXPECT_FALSE(hello == hi);
 }
 
-TEST(Slice, NotEqualOperator) {
+TEST(SliceTest, NotEqualOperator) {
   Slice hello("Hello");
   Slice hi("Hi");
 
