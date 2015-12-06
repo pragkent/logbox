@@ -2,12 +2,13 @@
 #define LOGBOX_UTIL_POSIX_ERROR_H_
 
 #include <stddef.h>
+#include <string>
 
 namespace logbox {
 
-// Portable thread-safe version of strerror. It returns 0 and stores
-// error string in user-supplied buffer on success.
-int posix_strerror_r(int err, char *buf, size_t len);
+// Portable thread-safe version of strerror. It returns a string
+// describing the given POSIX error num.
+std::string StrError(int err);
 
 } // namespace logbox
 

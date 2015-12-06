@@ -126,9 +126,8 @@ ErrnoLogBox::ErrnoLogBox(
 }
 
 ErrnoLogBox::~ErrnoLogBox() {
-  char buf[100];
-  posix_strerror_r(preserved_errno(), buf, sizeof(buf));
-  stream() << ": " << buf << " [" << preserved_errno() << "]";
+  std::string error_desc = StrError(preserved_errno());
+  stream() << ": " << error_desc << " [" << preserved_errno() << "]";
 }
 
 bool IsLoggingInitialized() {

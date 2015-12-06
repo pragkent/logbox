@@ -94,11 +94,10 @@ const std::unique_ptr<WritableFile>& RollingFileSink::OpenLogFile() {
 
   file_ = Environment::NewWritableFile(file_path);
   if (!file_) {
-    char buff[100];
     int preserved_errno = errno;
-    posix_strerror_r(preserved_errno, buff, sizeof(buff));
+    std::string error_desc = StrError(preserved_errno);
     fprintf(stderr, "WARNING: Could not create log file: %s[%d] - %s\n",
-            buff, preserved_errno, file_path.c_str());
+            error_desc.c_str(), preserved_errno, file_path.c_str());
     return file_;
   }
 

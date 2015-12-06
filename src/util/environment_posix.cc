@@ -42,7 +42,7 @@ pid_t gettid() {
   }
 
   // If none of the techniques above worked, we use pthread_self().
-  return static_cast<pid_t>(static_cast<uintptr_t>(pthread_self()));
+  return static_cast<pid_t>(reinterpret_cast<uintptr_t>(pthread_self()));
 }
 }
 

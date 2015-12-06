@@ -31,6 +31,8 @@
 
 #include <errno.h>
 #include <string.h>
+#include <stdint.h>
+#include <stdio.h>
 
 #include "logbox/feature_toggle.h"
 
@@ -84,6 +86,16 @@ int posix_strerror_r(int err, char *buf, size_t len) {
       return 0;
     }
   }
+}
+
+std::string StrError(int err) {
+  char buff[100];
+  int rc = posix_strerror_r(err, buff, sizeof(buff));
+  if (rc < 0 || buff[0] == '\0') {
+    snprintf(buff, sizeof(buff), "Error number %d", err);
+  }
+
+  return buff;
 }
 
 }
